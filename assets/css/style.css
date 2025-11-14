@@ -1,0 +1,58 @@
+/* assets/css/style.css */
+:root {
+  --accent: #10b981;
+  --muted: #9ca3af;
+}
+
+/* basic card */
+.card {
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+}
+
+/* toggle buttons appearance (button elements) */
+.toggle-btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:56px;
+  height:34px;
+  border-radius:9999px;
+  background:#e5e7eb;
+  color:#111827;
+  font-weight:600;
+  cursor:pointer;
+  border:none;
+  transition: all .22s ease;
+}
+.toggle-btn[aria-pressed="true"] {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(16,185,129,0.12);
+  transform: translateY(-1px);
+}
+
+/* dark mode styles */
+.dark .card { box-shadow: 0 6px 18px rgba(0,0,0,0.35); }
+.dark .toggle-btn[aria-pressed="false"] { background:#374151; color:#e5e7eb; }
+
+/* toast */
+#toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all .28s ease;
+  pointer-events:none;
+  z-index:9999;
+}
+#toast.show { opacity: 1; transform: translateY(0); pointer-events:auto; }
+#toast.error { background: #ef4444; }
+
+/* small layout helpers (charts height) */
+canvas { max-height: 280px; }
