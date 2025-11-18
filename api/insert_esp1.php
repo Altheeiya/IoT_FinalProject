@@ -15,6 +15,11 @@ if ($suhu === null || $kelembapan === null || $ldr === null) {
     exit;
 }
 
+$stmt1 = $conn->prepare("INSERT INTO sensor_suhu_kelembapan (suhu, kelembapan) VALUES (?, ?)");
+if (!$stmt1) {
+    die(json_encode(["success"=>false, "error_prepare_1"=>$conn->error]));
+}
+
 // Simpan suhu & kelembapan
 $stmt1 = $conn->prepare("INSERT INTO sensor_suhu_kelembapan (suhu, kelembapan) VALUES (?, ?)");
 $stmt1->bind_param("dd", $suhu, $kelembapan);
