@@ -1,0 +1,125 @@
+/*
+ * QUICK START GUIDE
+ * Dashboard Greenhouse IoT v3.0
+ * ========================================
+ * 
+ * 🚀 LANGKAH CEPAT (5 Menit!)
+ * 
+ * 1. IMPORT DATABASE
+ *    - Buka phpMyAdmin
+ *    - Import file: database/schema_update.sql
+ * 
+ * 2. JALANKAN MIGRATION SCRIPT
+ *    PowerShell:
+ *    cd c:\laragon\www\IoT_GreenHouse
+ *    .\migrate.ps1
+ * 
+ * 3. BUKA BROWSER
+ *    http://localhost/IoT_GreenHouse/
+ * 
+ * 4. UPLOAD ARDUINO SKETCH (Optional - jika ada hardware)
+ *    - sketch_nov11a_new.ino → ESP8266 #1
+ *    - sketch_nov11b_new.ino → ESP8266 #2
+ * 
+ * ✅ SELESAI!
+ * 
+ * ========================================
+ * 📋 FITUR YANG TERSEDIA:
+ * 
+ * ✓ Dashboard Overview - Ringkasan semua sensor
+ * ✓ Alert System - Notifikasi otomatis
+ * ✓ Threshold Settings - Set batas min/max
+ * ✓ Auto/Manual Mode - Kontrol otomatis
+ * ✓ Export Data - Download ke CSV
+ * ✓ Connection Status - Monitor ESP online/offline
+ * ✓ Date Filter - Filter data by range
+ * ✓ Statistics - Min/Max/Avg harian/mingguan/bulanan
+ * ✓ Dark Mode - Tema gelap lengkap
+ * ✓ 4 Charts - Suhu, Kelembapan, Cahaya, Tanah
+ * ✓ Responsive Design - Mobile friendly
+ * ✓ Real-time Updates - Polling 5 detik
+ * 
+ * ========================================
+ * 🎯 CARA PAKAI:
+ * 
+ * 1. LIHAT OVERVIEW
+ *    - Dashboard langsung menampilkan semua status
+ *    - Actuators active: X/3
+ *    - Mode: Manual/Auto
+ * 
+ * 2. SET THRESHOLD (Agar auto mode bekerja)
+ *    - Klik "⚙️ Threshold Settings"
+ *    - Set Min/Max untuk setiap sensor
+ *    - Contoh Suhu: Min=20, Max=35
+ *    - Save
+ * 
+ * 3. AKTIFKAN AUTO MODE
+ *    - Klik toggle "MANUAL" jadi "AUTO"
+ *    - Sistem akan otomatis kontrol actuator
+ *    - Contoh: Jika suhu > 35°C → Kipas ON
+ * 
+ * 4. EXPORT DATA
+ *    - Klik "📥 Export Data"
+ *    - File CSV terdownload
+ *    - Buka dengan Excel
+ * 
+ * 5. LIHAT STATISTICS
+ *    - Pilih period: Today/Week/Month
+ *    - Lihat Min/Avg/Max tiap sensor
+ * 
+ * 6. FILTER BY DATE
+ *    - Klik date range picker
+ *    - Pilih tanggal mulai dan akhir
+ *    - Chart update otomatis
+ * 
+ * 7. DARK MODE
+ *    - Klik icon 🌙 / ☀️
+ *    - Semua berubah tema
+ * 
+ * ========================================
+ * ⚙️ KONFIGURASI ARDUINO (Jika ada ESP8266):
+ * 
+ * Edit di sketch sebelum upload:
+ * 
+ * const char* ssid = "WIFI_ANDA";
+ * const char* password = "PASSWORD_WIFI";
+ * const char* server = "http://IP_KOMPUTER:8000/api";
+ * 
+ * Cari IP komputer:
+ * ipconfig → IPv4 Address
+ * 
+ * Upload:
+ * - ESP1: DHT22 + LDR → sketch_nov11a_new.ino
+ * - ESP2: Soil Sensor → sketch_nov11b_new.ino
+ * 
+ * ========================================
+ * 🐛 TROUBLESHOOTING:
+ * 
+ * Chart tidak muncul?
+ * → Clear cache (Ctrl+F5)
+ * 
+ * Dark mode tidak sempurna?
+ * → Hard refresh (Ctrl+Shift+R)
+ * 
+ * ESP tidak online?
+ * → Check WiFi credentials
+ * → Check server IP di sketch
+ * → Monitor serial Arduino
+ * 
+ * Database error?
+ * → Import ulang schema_update.sql
+ * 
+ * ========================================
+ * 📚 DOKUMENTASI LENGKAP:
+ * 
+ * - README_ENHANCED.md → Full documentation
+ * - INSTALL_ID.md → Panduan instalasi lengkap
+ * - COMPARISON.md → Perbandingan versi lama vs baru
+ * 
+ * ========================================
+ * 🎉 ENJOY YOUR SMART GREENHOUSE!
+ * 
+ * Version: 3.0
+ * Last Update: 2025-01-18
+ * Enhanced by: AI Assistant
+ */

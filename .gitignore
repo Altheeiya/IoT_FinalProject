@@ -1,0 +1,19 @@
+# Database credentials (IMPORTANT - jangan upload password!)
+#config/db.php
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+[Dd]esktop.ini
+$RECYCLE.BIN/
+.AppleDouble
+.LSOverride
+._*
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
