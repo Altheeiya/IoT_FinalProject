@@ -146,6 +146,91 @@
             </div>
         </section>
 
+        <!-- Sensor Cards -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <!-- Suhu -->
+            <div
+                class="card sensor-card bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/30 dark:to-orange-800/20 p-5 relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 w-32 h-32 bg-orange-200 dark:bg-orange-700/20 rounded-full -mr-16 -mt-16 opacity-30">
+                </div>
+                <div class="relative">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <div class="text-sm text-orange-600 dark:text-orange-400 font-semibold">Suhu Udara</div>
+                            <div id="card-temp" class="text-4xl font-bold text-orange-800 dark:text-orange-300 my-2">--
+                                °C</div>
+                            <div id="sub-temp" class="text-xs text-gray-600 dark:text-gray-400">Terakhir: --</div>
+                            <div id="alert-temp" class="alert-badge hidden mt-2"></div>
+                        </div>
+                        <i data-lucide="thermometer" class="w-12 h-12 text-orange-400 dark:text-orange-500"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kelembapan Udara -->
+            <div
+                class="card sensor-card bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/20 p-5 relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 w-32 h-32 bg-blue-200 dark:bg-blue-700/20 rounded-full -mr-16 -mt-16 opacity-30">
+                </div>
+                <div class="relative">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <div class="text-sm text-blue-600 dark:text-blue-400 font-semibold">Kelembapan Udara</div>
+                            <div id="card-hum" class="text-4xl font-bold text-blue-800 dark:text-blue-300 my-2">-- %
+                            </div>
+                            <div id="sub-hum" class="text-xs text-gray-600 dark:text-gray-400">Terakhir: --</div>
+                            <div id="alert-hum" class="alert-badge hidden mt-2"></div>
+                        </div>
+                        <i data-lucide="droplets" class="w-12 h-12 text-blue-400 dark:text-blue-500"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intensitas Cahaya -->
+            <div
+                class="card sensor-card bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-900/30 dark:to-yellow-800/20 p-5 relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 w-32 h-32 bg-yellow-200 dark:bg-yellow-700/20 rounded-full -mr-16 -mt-16 opacity-30">
+                </div>
+                <div class="relative">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <div class="text-sm text-yellow-600 dark:text-yellow-400 font-semibold">Intensitas Cahaya
+                            </div>
+                            <div id="card-ldr" class="text-4xl font-bold text-yellow-800 dark:text-yellow-300 my-2">--
+                                lux</div>
+                            <div id="sub-ldr" class="text-xs text-gray-600 dark:text-gray-400">Terakhir: --</div>
+                            <div id="alert-ldr" class="alert-badge hidden mt-2"></div>
+                        </div>
+                        <i data-lucide="sun" class="w-12 h-12 text-yellow-400 dark:text-yellow-500"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kelembapan Tanah -->
+            <div
+                class="card sensor-card bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/30 dark:to-emerald-800/20 p-5 relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 w-32 h-32 bg-emerald-200 dark:bg-emerald-700/20 rounded-full -mr-16 -mt-16 opacity-30">
+                </div>
+                <div class="relative">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <div class="text-sm text-emerald-600 dark:text-emerald-400 font-semibold">Kelembapan Tanah
+                            </div>
+                            <div id="card-soil" class="text-4xl font-bold text-emerald-800 dark:text-emerald-300 my-2">
+                                -- %</div>
+                            <div id="sub-soil" class="text-xs text-gray-600 dark:text-gray-400">Terakhir: --</div>
+                            <div id="alert-soil" class="alert-badge hidden mt-2"></div>
+                        </div>
+                        <i data-lucide="sprout" class="w-12 h-12 text-emerald-400 dark:text-emerald-500"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Statistics Section -->
         <section class="mb-6">
             <div class="card bg-white dark:bg-gray-800 p-5">
