@@ -154,7 +154,7 @@ function initCharts() {
     data: {
       labels: [],
       datasets: [{
-        label: "Cahaya (lx)",
+        label: "Cahaya (lux)",
         data: [],
         tension: 0.4,
         borderColor: "#facc15",
@@ -253,8 +253,8 @@ function updateSensorCards(latest) {
   
   // Light
   const light = latest.light !== null ? parseInt(latest.light) : "--";
-  $id("card-ldr").textContent = light + " lx";
-  $id("overview-light").textContent = light + "lx";
+  $id("card-ldr").textContent = light + " lux";
+  $id("overview-light").textContent = light + " lux";
   
   // Soil
   const soil = latest.soil !== null ? parseFloat(latest.soil).toFixed(1) : "--";
@@ -359,7 +359,7 @@ function checkAlerts(latest) {
   const sensors = {
     temperature: { value: latest.temperature, label: "Suhu", unit: "°C", element: "alert-temp" },
     humidity: { value: latest.humidity, label: "Kelembapan", unit: "%", element: "alert-hum" },
-    light: { value: latest.light, label: "Cahaya", unit: "lx", element: "alert-ldr" },
+    light: { value: latest.light, label: "Cahaya", unit: "lux", element: "alert-ldr" },
     soil: { value: latest.soil, label: "Kelembapan Tanah", unit: "%", element: "alert-soil" }
   };
 
