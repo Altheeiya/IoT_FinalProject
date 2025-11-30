@@ -243,29 +243,19 @@ async function fetchAndUpdate() {
 function updateSensorCards(latest) {
   // Temperature
   const temp = latest.temperature !== null ? parseFloat(latest.temperature).toFixed(1) : "--";
-  $id("card-temp").textContent = temp + " °C";
   $id("overview-temp").textContent = temp + "°C";
   
   // Humidity
   const hum = latest.humidity !== null ? parseFloat(latest.humidity).toFixed(1) : "--";
-  $id("card-hum").textContent = hum + " %";
   $id("overview-hum").textContent = hum + "%";
   
   // Light
   const light = latest.light !== null ? parseInt(latest.light) : "--";
-  $id("card-ldr").textContent = light + " lux";
   $id("overview-light").textContent = light + " lux";
   
   // Soil
   const soil = latest.soil !== null ? parseFloat(latest.soil).toFixed(1) : "--";
-  $id("card-soil").textContent = soil + " %";
   $id("overview-soil").textContent = soil + "%";
-
-  // Update timestamps
-  const timeStr = latest.ts ? new Date(latest.ts).toLocaleString('id-ID') : "--";
-  ["sub-temp", "sub-hum", "sub-ldr", "sub-soil"].forEach(
-    id => $id(id).textContent = "Terakhir: " + timeStr
-  );
 }
 
 function updateOverview(latest) {
@@ -357,38 +347,22 @@ function checkAlerts(latest) {
   if (!appState.thresholds || Object.keys(appState.thresholds).length === 0) return;
 
   const sensors = {
-    temperature: { value: latest.temperature, label: "Suhu", unit: "°C", element: "alert-temp" },
-    humidity: { value: latest.humidity, label: "Kelembapan", unit: "%", element: "alert-hum" },
-    light: { value: latest.light, label: "Cahaya", unit: "lux", element: "alert-ldr" },
-    soil: { value: latest.soil, label: "Kelembapan Tanah", unit: "%", element: "alert-soil" }
+    temperature: { value: latest.temperature, label: "Suhu", unit: "°C" },
+    humidity: { value: latest.humidity, label: "Kelembapan", unit: "%" },
+    light: { value: latest.light, label: "Cahaya", unit: "lux" },
+    soil: { value: latest.soil, label: "Kelembapan Tanah", unit: "%" }
   };
 
   Object.keys(sensors).forEach(key => {
     const sensor = sensors[key];
     const thresh = appState.thresholds[key];
-    const alertEl = $id(sensor.element);
     
-    if (!alertEl || sensor.value === null || !thresh) return;
-
-    let alertMsg = null;
-    let alertType = null;
+    if (sensor.value === null || !thresh) return;
 
     if (thresh.min_value !== null && sensor.value < parseFloat(thresh.min_value)) {
-      alertMsg = `Terlalu rendah! (< ${thresh.min_value}${sensor.unit})`;
-      alertType = "danger";
       showAlert(`${sensor.label} terlalu rendah: ${sensor.value}${sensor.unit}`, "danger");
     } else if (thresh.max_value !== null && sensor.value > parseFloat(thresh.max_value)) {
-      alertMsg = `Terlalu tinggi! (> ${thresh.max_value}${sensor.unit})`;
-      alertType = "danger";
       showAlert(`${sensor.label} terlalu tinggi: ${sensor.value}${sensor.unit}`, "danger");
-    }
-
-    if (alertMsg) {
-      alertEl.textContent = alertMsg;
-      alertEl.className = `alert-badge ${alertType}`;
-      alertEl.classList.remove('hidden');
-    } else {
-      alertEl.classList.add('hidden');
     }
   });
 }
