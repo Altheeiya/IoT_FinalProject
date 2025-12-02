@@ -265,6 +265,8 @@ function updateOverview(latest) {
 function updateActuators(actuators) {
   let activeCount = 0;
   
+  console.log("Updating actuators:", actuators); // Debug log
+  
   ["pump", "fan", "light"].forEach(code => {
     const info = actuators[code] || null;
     const btn = document.querySelector(`[data-code="${code}"]`);
@@ -274,9 +276,12 @@ function updateActuators(actuators) {
       const isOn = info.status == 1 || info.status === "1";
       if (isOn) activeCount++;
       
+      console.log(`${code}: status=${info.status}, isOn=${isOn}`); // Debug log
+      
       if (btn) {
         btn.setAttribute("aria-pressed", isOn ? "true" : "false");
         btn.textContent = isOn ? "ON" : "OFF";
+        console.log(`${code} button updated: aria-pressed=${isOn ? "true" : "false"}`); // Debug log
       }
       if (statusEl) statusEl.textContent = isOn ? "ON" : "OFF";
     }
