@@ -427,7 +427,7 @@
     </div>
 
     <!-- App JS -->
-    <script src="assets/js/app_new.js"></script>
+    <script src="assets/js/app.js"></script>
     <script>
         lucide.createIcons();
     </script>
