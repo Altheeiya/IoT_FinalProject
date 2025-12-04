@@ -105,7 +105,8 @@
                         <div class="text-center p-3 rounded-lg bg-yellow-50 dark:bg-yellow-900/20">
                             <div class="text-2xl">☀️</div>
                             <div class="text-xs text-gray-600 dark:text-gray-400 mt-1">Light</div>
-                            <div id="overview-light" class="text-sm font-bold text-yellow-700 dark:text-yellow-400">-- lux
+                            <div id="overview-light" class="text-sm font-bold text-yellow-700 dark:text-yellow-400">--
+                                lux
                             </div>
                         </div>
                         <div class="text-center p-3 rounded-lg bg-emerald-50 dark:bg-emerald-900/20">

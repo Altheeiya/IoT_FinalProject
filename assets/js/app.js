@@ -219,13 +219,22 @@ async function fetchAndUpdate() {
     
     const url = `api/get_data.php?${params.toString()}`;
     const res = await fetch(url, { cache: "no-store" });
+    
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    
     const data = await res.json();
     
     if (!data.success) {
-      console.error("API error", data);
+      console.error("❌ API returned error:", data);
+      if (data.error) {
+        showAlert(`Database Error: ${data.error}`, 'danger');
+      }
       return;
     }
 
+    console.log("✅ Data fetched successfully:", data);
     updateSensorCards(data.latest || {});
     updateOverview(data.latest || {});
     updateActuators(data.actuators || {});
@@ -235,7 +244,8 @@ async function fetchAndUpdate() {
     updateConnectionStatus(data.devices || {});
 
   } catch (err) {
-    console.error("fetchAndUpdate error", err);
+    console.error("❌ fetchAndUpdate error:", err);
+    showAlert(`Failed to fetch data: ${err.message}`, 'danger');
     updateConnectionStatus({ ESP1: { is_online: 0 }, ESP2: { is_online: 0 } });
   }
 }
